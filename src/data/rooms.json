@@ -1,0 +1,112 @@
+[
+  {
+    "id": "AB-201",
+    "name": "Lecture Hall AB-201",
+    "building": "Aryabhata Block",
+    "floor": "2nd Floor",
+    "type": "Lecture Hall",
+    "capacity": 75,
+    "hasProjector": true,
+    "wifiAp": "AP-AB-2F-01"
+  },
+  {
+    "id": "AB-302",
+    "name": "Lecture Hall AB-302",
+    "building": "Aryabhata Block",
+    "floor": "3rd Floor",
+    "type": "Lecture Hall",
+    "capacity": 70,
+    "hasProjector": true,
+    "wifiAp": "AP-AB-3F-01"
+  },
+  {
+    "id": "AB-304",
+    "name": "HOD Cabin CSE (Room 304)",
+    "building": "Aryabhata Block",
+    "floor": "3rd Floor",
+    "type": "Faculty Cabin",
+    "capacity": 8,
+    "hasProjector": false,
+    "wifiAp": "AP-AB-3F-01"
+  },
+  {
+    "id": "AB-412",
+    "name": "Faculty Cabin ISE (Room 412)",
+    "building": "Aryabhata Block",
+    "floor": "4th Floor",
+    "type": "Faculty Cabin",
+    "capacity": 6,
+    "hasProjector": false,
+    "wifiAp": "AP-AB-4F-01"
+  },
+  {
+    "id": "AB-Lab3",
+    "name": "AI & Advanced Web Technologies Lab",
+    "building": "Aryabhata Block",
+    "floor": "Ground Floor",
+    "type": "Computer Lab",
+    "capacity": 60,
+    "hasProjector": true,
+    "wifiAp": "AP-AB-GF-01"
+  },
+  {
+    "id": "VB-204",
+    "name": "Lecture Hall VB-204",
+    "building": "Visvesvaraya Block",
+    "floor": "2nd Floor",
+    "type": "Lecture Hall",
+    "capacity": 75,
+    "hasProjector": true,
+    "wifiAp": "AP-VB-2F-02"
+  },
+  {
+    "id": "VB-Lab1",
+    "name": "High Performance Computing Lab",
+    "building": "Visvesvaraya Block",
+    "floor": "1st Floor",
+    "type": "Computer Lab",
+    "capacity": 55,
+    "hasProjector": true,
+    "wifiAp": "AP-VB-1F-01"
+  },
+  {
+    "id": "RB-VLSI",
+    "name": "Advanced VLSI & Embedded Systems Lab",
+    "building": "Ramanujan Block",
+    "floor": "Ground Floor",
+    "type": "Hardware Lab",
+    "capacity": 45,
+    "hasProjector": true,
+    "wifiAp": "AP-RB-GF-01"
+  },
+  {
+    "id": "AUD-MAIN",
+    "name": "Dr. A.P.J. Abdul Kalam Auditorium",
+    "building": "Central Block",
+    "floor": "Ground Floor",
+    "type": "Auditorium",
+    "capacity": 800,
+    "hasProjector": true,
+    "wifiAp": "AP-AUD-01"
+  },
+  {
+    "id": "LIB-CENTRAL",
+    "name": "Dr. Sarvepalli Radhakrishnan Central Library",
+    "building": "Library Block",
+    "floor": "Ground & 1st Floor",
+    "type": "Library / Study Area",
+    "capacity": 300,
+    "hasProjector": false,
+    "wifiAp": "AP-LIB-01"
+  },
+  {
+    "id": "CAFETERIA",
+    "name": "Campus Food Court & Cafeteria",
+    "building": "Student Center",
+    "floor": "Ground Floor",
+    "type": "Dining & Recreation",
+    "capacity": 400,
+    "hasProjector": false,
+    "wifiAp": "AP-CAFE-01"
+  }
+]

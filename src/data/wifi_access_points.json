@@ -1,0 +1,82 @@
+[
+  {
+    "id": "AP-AB-GF-01",
+    "mac": "84:D4:7E:11:01:A1",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Aryabhata Block",
+    "floor": "Ground Floor",
+    "zone": "Computer Labs & Server Room",
+    "signalStrengthDbm": -48,
+    "nearbyRooms": ["AB-Lab1", "AB-Lab2", "AB-Lab3"]
+  },
+  {
+    "id": "AP-AB-2F-01",
+    "mac": "84:D4:7E:11:02:B2",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Aryabhata Block",
+    "floor": "2nd Floor",
+    "zone": "CSE 6th Sem Classrooms",
+    "signalStrengthDbm": -52,
+    "nearbyRooms": ["AB-201", "AB-202", "AB-203"]
+  },
+  {
+    "id": "AP-AB-3F-01",
+    "mac": "84:D4:7E:11:03:C3",
+    "ssid": "SNPU-Faculty-Secure",
+    "building": "Aryabhata Block",
+    "floor": "3rd Floor",
+    "zone": "HOD & Faculty Cabins CSE",
+    "signalStrengthDbm": -45,
+    "nearbyRooms": ["AB-301", "AB-302", "AB-304"]
+  },
+  {
+    "id": "AP-AB-4F-01",
+    "mac": "84:D4:7E:11:04:D4",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Aryabhata Block",
+    "floor": "4th Floor",
+    "zone": "ISE Department Cabins & Labs",
+    "signalStrengthDbm": -55,
+    "nearbyRooms": ["AB-401", "AB-412", "AB-LabISE"]
+  },
+  {
+    "id": "AP-VB-2F-02",
+    "mac": "84:D4:7E:22:02:E5",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Visvesvaraya Block",
+    "floor": "2nd Floor",
+    "zone": "AIML Classrooms",
+    "signalStrengthDbm": -50,
+    "nearbyRooms": ["VB-201", "VB-202", "VB-204"]
+  },
+  {
+    "id": "AP-RB-GF-01",
+    "mac": "84:D4:7E:33:01:F6",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Ramanujan Block",
+    "floor": "Ground Floor",
+    "zone": "ECE VLSI & Embedded Labs",
+    "signalStrengthDbm": -58,
+    "nearbyRooms": ["RB-101", "RB-102", "RB-VLSI"]
+  },
+  {
+    "id": "AP-LIB-01",
+    "mac": "84:D4:7E:44:01:A7",
+    "ssid": "SNPU-Library-Quiet",
+    "building": "Library Block",
+    "floor": "Ground Floor",
+    "zone": "Digital Library & Reading Hall",
+    "signalStrengthDbm": -42,
+    "nearbyRooms": ["LIB-CENTRAL", "LIB-DIGITAL", "LIB-STACKS"]
+  },
+  {
+    "id": "AP-CAFE-01",
+    "mac": "84:D4:7E:55:01:B8",
+    "ssid": "SNPU-Student-Lounge",
+    "building": "Student Center",
+    "floor": "Ground Floor",
+    "zone": "Cafeteria & Open Courtyard",
+    "signalStrengthDbm": -62,
+    "nearbyRooms": ["CAFETERIA", "STUDENT-COUNCIL", "STATIONERY"]
+  }
+]

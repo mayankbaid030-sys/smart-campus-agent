@@ -1,0 +1,37 @@
+[
+  {
+    "id": "hol-001",
+    "date": "2026-10-20",
+    "name": "Maha Navami / Ayudha Pooja",
+    "type": "General Holiday",
+    "description": "Public holiday across Karnataka. College offices and classes remain closed."
+  },
+  {
+    "id": "hol-002",
+    "date": "2026-10-21",
+    "name": "Vijayadashami (Dussehra)",
+    "type": "General Holiday",
+    "description": "Public holiday for Dussehra festival."
+  },
+  {
+    "id": "hol-003",
+    "date": "2026-11-01",
+    "name": "Kannada Rajyotsava",
+    "type": "State Holiday",
+    "description": "Karnataka State Foundation Day celebrations. Flag hoisting at 8:30 AM in college central quadrangle."
+  },
+  {
+    "id": "hol-004",
+    "date": "2026-11-08",
+    "name": "Deepavali / Naraka Chaturdashi",
+    "type": "General Holiday",
+    "description": "Festival of Lights holiday."
+  },
+  {
+    "id": "hol-005",
+    "date": "2026-12-25",
+    "name": "Christmas",
+    "type": "General Holiday",
+    "description": "Winter break and Christmas holiday."
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "studentId": "std-001",
+    "usn": "1SG21CS085",
+    "overallPercentage": 86.4,
+    "lastUpdated": "2026-10-08",
+    "subjects": [
+      {
+        "courseCode": "21CS61",
+        "courseName": "Software Engineering & Project Management",
+        "faculty": "Prof. R. Narayana",
+        "classesHeld": 32,
+        "classesAttended": 28,
+        "percentage": 87.5,
+        "status": "Safe (>85%)"
+      },
+      {
+        "courseCode": "21CS62",
+        "courseName": "Full Stack Web Development",
+        "faculty": "Prof. Priya Sundaram",
+        "classesHeld": 36,
+        "classesAttended": 33,
+        "percentage": 91.6,
+        "status": "Excellent (>90%)"
+      },
+      {
+        "courseCode": "21CS63",
+        "courseName": "Machine Learning & AI",
+        "faculty": "Dr. Geetha R.",
+        "classesHeld": 34,
+        "classesAttended": 29,
+        "percentage": 85.3,
+        "status": "Safe (>85%)"
+      },
+      {
+        "courseCode": "21CS64",
+        "courseName": "Cloud Computing",
+        "faculty": "Dr. Suresh Reddy",
+        "classesHeld": 28,
+        "classesAttended": 22,
+        "percentage": 78.5,
+        "status": "Warning (Near 75% VTU threshold)"
+      },
+      {
+        "courseCode": "21CSL66",
+        "courseName": "AI & Web Lab",
+        "faculty": "Dr. Geetha R. / Prof. Priya",
+        "classesHeld": 14,
+        "classesAttended": 13,
+        "percentage": 92.8,
+        "status": "Excellent (>90%)"
+      }
+    ]
+  },
+  {
+    "studentId": "std-002",
+    "usn": "1SG21AI042",
+    "overallPercentage": 91.2,
+    "lastUpdated": "2026-10-08",
+    "subjects": [
+      {
+        "courseCode": "21AI61",
+        "courseName": "Deep Learning Architectures",
+        "faculty": "Prof. Manjunath Swamy",
+        "classesHeld": 35,
+        "classesAttended": 33,
+        "percentage": 94.2,
+        "status": "Excellent (>90%)"
+      },
+      {
+        "courseCode": "21AI62",
+        "courseName": "Natural Language Processing",
+        "faculty": "Dr. Srinivas Rao",
+        "classesHeld": 30,
+        "classesAttended": 27,
+        "percentage": 90.0,
+        "status": "Excellent (>90%)"
+      }
+    ]
+  }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "id": "fac-001",
+    "name": "Dr. Geetha R.",
+    "phone": "+91 98860 12345",
+    "email": "geetha.cse@sapthagiri.edu.in",
+    "designation": "Professor & Head of Department",
+    "department": "Computer Science & Engineering",
+    "deptCode": "CSE",
+    "cabin": "Aryabhata Block - Room 304",
+    "officeHours": "10:30 AM - 12:30 PM, 3:30 PM - 4:30 PM",
+    "status": "In Cabin",
+    "currentLocation": {
+      "roomId": "AB-304",
+      "roomName": "HOD Cabin CSE",
+      "building": "Aryabhata Block",
+      "floor": "3rd Floor",
+      "wifiAp": "AP-AB-3F-01",
+      "lastUpdated": "Just now"
+    },
+    "subjectsTaught": [
+      { "code": "21CS63", "name": "Machine Learning & AI" },
+      { "code": "21CS81", "name": "Internet of Things" }
+    ],
+    "scheduleToday": [
+      { "time": "09:00 - 10:00", "activity": "Lecture: 21CS63 (CSE 6th Sem A)", "room": "AB-201" },
+      { "time": "10:30 - 12:30", "activity": "Office Hours / Research Guidance", "room": "AB-304" },
+      { "time": "14:00 - 16:00", "activity": "AI & Web Lab Batch A2", "room": "AB-Lab3" }
+    ]
+  },
+  {
+    "id": "fac-002",
+    "name": "Prof. Manjunath Swamy",
+    "phone": "+91 98450 67890",
+    "email": "manjunath.swamy@sapthagiri.edu.in",
+    "designation": "Associate Professor",
+    "department": "Artificial Intelligence & Machine Learning",
+    "deptCode": "AIML",
+    "cabin": "Visvesvaraya Block - Room 208",
+    "officeHours": "11:00 AM - 1:00 PM",
+    "status": "In Class",
+    "currentLocation": {
+      "roomId": "VB-204",
+      "roomName": "Lecture Hall 204",
+      "building": "Visvesvaraya Block",
+      "floor": "2nd Floor",
+      "wifiAp": "AP-VB-2F-02",
+      "lastUpdated": "4 mins ago"
+    },
+    "subjectsTaught": [
+      { "code": "21AI61", "name": "Deep Learning Architectures" },
+      { "code": "21AI42", "name": "Python for Data Science" }
+    ],
+    "scheduleToday": [
+      { "time": "10:00 - 11:00", "activity": "Lecture: Deep Learning (AIML 6th)", "room": "VB-204" },
+      { "time": "11:30 - 13:00", "activity": "Student Mentorship", "room": "VB-208" },
+      { "time": "14:00 - 16:00", "activity": "Deep Learning Lab", "room": "VB-Lab1" }
+    ]
+  },
+  {
+    "id": "fac-003",
+    "name": "Dr. Kavitha Mohan",
+    "phone": "+91 98863 45678",
+    "email": "kavitha.m@sapthagiri.edu.in",
+    "designation": "Associate Professor",
+    "department": "Information Science & Engineering",
+    "deptCode": "ISE",
+    "cabin": "Aryabhata Block - Room 412",
+    "officeHours": "2:00 PM - 4:00 PM",
+    "status": "In Meeting",
+    "currentLocation": {
+      "roomId": "AB-CR1",
+      "roomName": "Conference Room 1",
+      "building": "Aryabhata Block",
+      "floor": "1st Floor",
+      "wifiAp": "AP-AB-1F-02",
+      "lastUpdated": "12 mins ago"
+    },
+    "subjectsTaught": [
+      { "code": "21IS42", "name": "Database Management Systems" },
+      { "code": "21IS62", "name": "Big Data Analytics" }
+    ],
+    "scheduleToday": [
+      { "time": "09:00 - 10:00", "activity": "Faculty Academic Council Meeting", "room": "AB-CR1" },
+      { "time": "11:00 - 12:00", "activity": "DBMS Lecture (ISE 4th)", "room": "AB-302" },
+      { "time": "14:00 - 16:00", "activity": "DBMS Lab (Batch I1)", "room": "AB-Lab2" }
+    ]
+  },
+  {
+    "id": "fac-004",
+    "name": "Dr. Harish Babu",
+    "phone": "+91 98864 56789",
+    "email": "harish.babu@sapthagiri.edu.in",
+    "designation": "Professor & Dean R&D",
+    "department": "Electronics & Communication Engineering",
+    "deptCode": "ECE",
+    "cabin": "Ramanujan Block - Room 102",
+    "officeHours": "1:30 PM - 3:30 PM",
+    "status": "In Research Lab",
+    "currentLocation": {
+      "roomId": "RB-VLSI",
+      "roomName": "Advanced VLSI Lab",
+      "building": "Ramanujan Block",
+      "floor": "Ground Floor",
+      "wifiAp": "AP-RB-GF-01",
+      "lastUpdated": "18 mins ago"
+    },
+    "subjectsTaught": [
+      { "code": "21EC43", "name": "Microcontrollers & Embedded Systems" },
+      { "code": "21EC61", "name": "Digital Communication" }
+    ],
+    "scheduleToday": [
+      { "time": "10:00 - 12:00", "activity": "VLSI Research & Testing", "room": "RB-VLSI" },
+      { "time": "14:00 - 15:00", "activity": "Embedded Systems (ECE 4th)", "room": "RB-201" }
+    ]
+  },
+  {
+    "id": "fac-005",
+    "name": "Prof. Priya Sundaram",
+    "phone": "+91 97412 34567",
+    "email": "priya.sundaram@sapthagiri.edu.in",
+    "designation": "Assistant Professor & Dean Student Affairs",
+    "department": "Computer Science & Engineering",
+    "deptCode": "CSE",
+    "cabin": "Admin Block - Room 105",
+    "officeHours": "10:00 AM - 1:00 PM",
+    "status": "In Cabin",
+    "currentLocation": {
+      "roomId": "ADM-105",
+      "roomName": "Student Affairs Office",
+      "building": "Admin Block",
+      "floor": "1st Floor",
+      "wifiAp": "AP-ADM-1F-01",
+      "lastUpdated": "1 min ago"
+    },
+    "subjectsTaught": [
+      { "code": "21CS62", "name": "Full Stack Web Development" }
+    ],
+    "scheduleToday": [
+      { "time": "10:00 - 12:00", "activity": "Student Grievance & Club Approvals", "room": "ADM-105" },
+      { "time": "13:30 - 14:30", "activity": "Web Dev Class (CSE 6th A)", "room": "AB-201" }
+    ]
+  }
+]

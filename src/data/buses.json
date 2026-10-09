@@ -1,0 +1,70 @@
+[
+  {
+    "routeNumber": 1,
+    "routeName": "Peenya & Jalahalli Cross Route",
+    "busPlateNumber": "KA-04-E-4512",
+    "driverName": "Rangaswamy",
+    "driverPhone": "+91 99001 23456",
+    "capacity": 55,
+    "morningDeparture": "07:30 AM",
+    "eveningDeparture": "04:45 PM",
+    "stops": [
+      { "stopName": "Peenya 2nd Stage", "morningTime": "07:30 AM" },
+      { "stopName": "Jalahalli Cross", "morningTime": "07:45 AM" },
+      { "stopName": "Dasarahalli Metro", "morningTime": "07:55 AM" },
+      { "stopName": "Bagalagunte Cross", "morningTime": "08:10 AM" },
+      { "stopName": "Sapthagiri NPS University Campus", "morningTime": "08:30 AM" }
+    ]
+  },
+  {
+    "routeNumber": 2,
+    "routeName": "Yelahanka & Vidyaranyapura Route",
+    "busPlateNumber": "KA-04-E-4518",
+    "driverName": "Manjunath Gowda",
+    "driverPhone": "+91 99002 34567",
+    "capacity": 55,
+    "morningDeparture": "07:15 AM",
+    "eveningDeparture": "04:45 PM",
+    "stops": [
+      { "stopName": "Yelahanka Police Station", "morningTime": "07:15 AM" },
+      { "stopName": "Vidyaranyapura Post Office", "morningTime": "07:35 AM" },
+      { "stopName": "BEL Circle", "morningTime": "07:50 AM" },
+      { "stopName": "MS Palya", "morningTime": "08:05 AM" },
+      { "stopName": "Sapthagiri NPS University Campus", "morningTime": "08:30 AM" }
+    ]
+  },
+  {
+    "routeNumber": 4,
+    "routeName": "Majestic & Malleshwaram Route",
+    "busPlateNumber": "KA-04-E-4524",
+    "driverName": "Chandrashekar",
+    "driverPhone": "+91 99004 56789",
+    "capacity": 60,
+    "morningDeparture": "07:10 AM",
+    "eveningDeparture": "04:45 PM",
+    "stops": [
+      { "stopName": "Majestic Sangam Theatre", "morningTime": "07:10 AM" },
+      { "stopName": "Malleshwaram 8th Cross", "morningTime": "07:25 AM" },
+      { "stopName": "Yeshwanthpur Govardhan", "morningTime": "07:45 AM" },
+      { "stopName": "Goraguntepalya", "morningTime": "08:00 AM" },
+      { "stopName": "Sapthagiri NPS University Campus", "morningTime": "08:30 AM" }
+    ]
+  },
+  {
+    "routeNumber": 7,
+    "routeName": "Rajajinagar & Basaveshwaranagar Route",
+    "busPlateNumber": "KA-04-E-4530",
+    "driverName": "Shiva Kumar",
+    "driverPhone": "+91 99007 89012",
+    "capacity": 55,
+    "morningDeparture": "07:20 AM",
+    "eveningDeparture": "04:45 PM",
+    "stops": [
+      { "stopName": "Basaveshwaranagar Water Tank", "morningTime": "07:20 AM" },
+      { "stopName": "Rajajinagar 1st Block Metro", "morningTime": "07:35 AM" },
+      { "stopName": "Mahalakshmi Layout Entrance", "morningTime": "07:50 AM" },
+      { "stopName": "Kanteerava Studio Circle", "morningTime": "08:05 AM" },
+      { "stopName": "Sapthagiri NPS University Campus", "morningTime": "08:30 AM" }
+    ]
+  }
+]

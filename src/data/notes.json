@@ -1,0 +1,50 @@
+[
+  {
+    "id": "note-001",
+    "courseCode": "21CS63",
+    "courseTitle": "Machine Learning & AI",
+    "module": "Module 3: Decision Trees & Random Forests",
+    "uploadedBy": "Dr. Geetha R.",
+    "uploadDate": "2026-10-02",
+    "fileSize": "3.8 MB",
+    "tags": ["ML", "Decision Trees", "Entropy", "Information Gain"],
+    "downloadUrl": "#",
+    "summary": "Complete lecture slides, mathematical derivations of Gini Impurity and Shannon Entropy, plus sample VTU/Autonomous question bank solutions."
+  },
+  {
+    "id": "note-002",
+    "courseCode": "21CS62",
+    "courseTitle": "Full Stack Web Development",
+    "module": "Module 4: Next.js App Router & Serverless APIs",
+    "uploadedBy": "Prof. Priya Sundaram",
+    "uploadDate": "2026-09-28",
+    "fileSize": "2.1 MB",
+    "tags": ["Next.js", "React", "Serverless", "APIs", "Tailwind"],
+    "downloadUrl": "#",
+    "summary": "Comprehensive guide to SSR vs SSG, Client Components, Server Actions, Route Handlers, and deploying on Vercel."
+  },
+  {
+    "id": "note-003",
+    "courseCode": "21CS61",
+    "courseTitle": "Software Engineering & Project Management",
+    "module": "Module 2: Agile Scrum Framework & Sprint Planning",
+    "uploadedBy": "Prof. R. Narayana",
+    "uploadDate": "2026-09-15",
+    "fileSize": "1.9 MB",
+    "tags": ["Agile", "Scrum", "User Stories", "Burndown Charts"],
+    "downloadUrl": "#",
+    "summary": "Step-by-step walkthrough of Sprint Cycles, Backlog grooming, Jira workflow integration, and CI/CD pipelines."
+  },
+  {
+    "id": "note-004",
+    "courseCode": "21AI61",
+    "courseTitle": "Deep Learning Architectures",
+    "module": "Module 1: Backpropagation & CNNs",
+    "uploadedBy": "Prof. Manjunath Swamy",
+    "uploadDate": "2026-09-20",
+    "fileSize": "4.5 MB",
+    "tags": ["CNN", "Convolution", "Pooling", "PyTorch"],
+    "downloadUrl": "#",
+    "summary": "Mathematical foundations of gradient descent, convolutional kernels, activation functions (ReLU, GELU), and PyTorch code snippets."
+  }
+]

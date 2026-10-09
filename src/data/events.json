@@ -1,0 +1,50 @@
+[
+  {
+    "id": "evt-001",
+    "title": "Sapthagiri National Hackathon (SAPHACK 2026)",
+    "category": "Hackathon / Competition",
+    "date": "2026-10-17",
+    "time": "09:00 AM - 05:00 PM (36-Hour Hackathon)",
+    "venue": "Dr. A.P.J. Abdul Kalam Auditorium & AI Lab",
+    "organizer": "Department of CSE & IEEE Student Branch",
+    "description": "36-hour flagship hackathon on Generative AI, Campus Automation, and Sustainable Smart Cities with prizes worth Rs. 1,50,000.",
+    "registrationLink": "https://saphack2026.sapthagiri.edu.in",
+    "status": "Registration Open"
+  },
+  {
+    "id": "evt-002",
+    "title": "AI & GenAI in Robotics Hands-on Workshop",
+    "category": "Technical Workshop",
+    "date": "2026-10-12",
+    "time": "02:00 PM - 05:00 PM",
+    "venue": "Visvesvaraya Block - Seminar Hall 1",
+    "organizer": "Department of AIML in collaboration with Intel",
+    "description": "Hands-on implementation of edge neural networks and humanoid kinematics using Google Gemini and Jetson Nano.",
+    "registrationLink": "https://workshops.sapthagiri.edu.in/robotics",
+    "status": "Upcoming"
+  },
+  {
+    "id": "evt-003",
+    "title": "SANKALPA 2026 - Annual Cultural Fest",
+    "category": "Cultural Fest",
+    "date": "2026-11-06",
+    "time": "10:00 AM onwards (2 Days)",
+    "venue": "Open Air Amphitheatre & Sports Ground",
+    "organizer": "Student Welfare Committee",
+    "description": "Inter-collegiate cultural extravaganza featuring battle of bands, classical dance competitions, fashion show, and celebrity pro-nite.",
+    "registrationLink": "https://sankalpa.sapthagiri.edu.in",
+    "status": "Announced"
+  },
+  {
+    "id": "evt-004",
+    "title": "Campus Placement Drive: Google & Infosys Top Tier",
+    "category": "Placement / Career",
+    "date": "2026-10-22",
+    "time": "08:30 AM - 06:00 PM",
+    "venue": "Placement Cell, Admin Block 2nd Floor",
+    "organizer": "Training & Placement Cell (T&P)",
+    "description": "Campus recruitment drive for 2026 graduating batch (CSE, ISE, AIML, ECE). Eligible students must register with updated resumes on Superset.",
+    "registrationLink": "https://placement.sapthagiri.edu.in",
+    "status": "Upcoming"
+  }
+]
