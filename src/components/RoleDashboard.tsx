@@ -11,12 +11,9 @@ import {
   Compass,
   Phone,
   Bus,
-  CheckCircle,
-  AlertTriangle,
-  Building2,
+  School,
   Clock,
   Sparkles,
-  School,
 } from 'lucide-react';
 
 interface RoleDashboardProps {
@@ -30,77 +27,73 @@ export const RoleDashboard: React.FC<RoleDashboardProps> = ({ account, onAskAI }
   // 1. STUDENT VIEW
   if (role === 'student' && details) {
     return (
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="p-2 bg-blue-100 text-blue-800 rounded-xl">
-                <GraduationCap className="w-5 h-5" />
-              </span>
-              <div>
-                <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
-                  Student Portal: {details.name}
-                </h2>
-                <p className="text-xs text-slate-500 font-medium">
-                  USN: <span className="font-mono font-bold text-blue-700">{details.usn}</span> • {details.department} (Sem {details.semester})
-                </p>
-              </div>
+      <div className="glass-panel rounded-3xl border border-white/10 shadow-2xl p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 bg-gradient-to-br from-violet-600/30 to-pink-600/30 border border-pink-500/30 rounded-2xl text-pink-400">
+              <GraduationCap className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-lg font-extrabold text-white tracking-tight font-heading">
+                Student Portal: {details.name}
+              </h2>
+              <p className="text-xs text-slate-400 font-medium">
+                USN: <span className="font-mono font-bold text-pink-400">{details.usn}</span> • {details.department} (Sem {details.semester})
+              </p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl text-center">
-              <span className="block text-[10px] text-emerald-700 uppercase font-bold">CGPA</span>
-              <span className="text-base font-extrabold text-emerald-800">{details.cgpa}</span>
+          <div className="flex items-center gap-2.5">
+            <div className="bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-2xl text-center">
+              <span className="block text-[9px] text-emerald-400 uppercase font-black">CGPA</span>
+              <span className="text-base font-black text-emerald-300 font-heading">{details.cgpa}</span>
             </div>
-            <div className="bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-xl text-center">
-              <span className="block text-[10px] text-blue-700 uppercase font-bold">Bus Route</span>
-              <span className="text-base font-extrabold text-blue-800">#{details.busRoute}</span>
+            <div className="bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-2xl text-center">
+              <span className="block text-[9px] text-blue-400 uppercase font-black">Bus Route</span>
+              <span className="text-base font-black text-blue-300 font-heading">#{details.busRoute}</span>
             </div>
           </div>
         </div>
 
         {/* Quick Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Faculty Mentor */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+          <div className="glass-card border border-white/10 rounded-2xl p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                 Assigned Mentor
               </span>
-              <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
-                Available Today
+              <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                On Campus
               </span>
             </div>
-            <h4 className="font-extrabold text-slate-900 text-sm">{details.mentorName}</h4>
-            <div className="text-xs text-slate-600 flex items-center justify-between">
+            <h4 className="font-extrabold text-white text-sm font-heading">{details.mentorName}</h4>
+            <div className="text-xs text-slate-400 flex items-center justify-between">
               <span>{details.mentorPhone}</span>
               <button
                 onClick={() => onAskAI(`Where is my mentor ${details.mentorName}?`)}
-                className="text-blue-600 font-bold hover:underline"
+                className="text-pink-400 font-bold hover:underline cursor-pointer"
               >
-                Locate Mentor
+                Locate Radar
               </button>
             </div>
           </div>
 
-          {/* Enrolled Courses */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+          <div className="glass-card border border-white/10 rounded-2xl p-4 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                Current Semester Courses
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                Enrolled Subjects
               </span>
-              <span className="text-[10px] font-semibold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">
-                5 Subjects
+              <span className="text-[10px] font-bold text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20">
+                5 Courses
               </span>
             </div>
             <div className="flex flex-wrap gap-1.5 pt-1">
               {details.enrolledCourses?.map((c: any) => (
                 <span
                   key={c.code}
-                  className="text-xs font-bold bg-white text-slate-800 border border-slate-200 px-2.5 py-1 rounded-lg"
+                  className="text-xs font-bold bg-white/5 text-slate-200 border border-white/10 px-2.5 py-1 rounded-xl"
                   title={c.title}
                 >
-                  {c.code} ({c.credits} Cr)
+                  {c.code}
                 </span>
               ))}
             </div>
@@ -113,49 +106,46 @@ export const RoleDashboard: React.FC<RoleDashboardProps> = ({ account, onAskAI }
   // 2. FACULTY VIEW
   if (role === 'faculty' && details) {
     return (
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="p-2 bg-indigo-100 text-indigo-800 rounded-xl">
-                <School className="w-5 h-5" />
-              </span>
-              <div>
-                <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
-                  Faculty Portal: {details.name}
-                </h2>
-                <p className="text-xs text-slate-500 font-medium">
-                  {details.designation} • {details.department}
-                </p>
-              </div>
+      <div className="glass-panel rounded-3xl border border-white/10 shadow-2xl p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 bg-gradient-to-br from-violet-600/30 to-pink-600/30 border border-pink-500/30 rounded-2xl text-pink-400">
+              <School className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-lg font-extrabold text-white tracking-tight font-heading">
+                Faculty Portal: {details.name}
+              </h2>
+              <p className="text-xs text-slate-400 font-medium">
+                {details.designation} • {details.department}
+              </p>
             </div>
           </div>
-          <span className="px-3 py-1 rounded-xl bg-purple-100 text-purple-800 font-bold text-xs">
+          <span className="px-3 py-1.5 rounded-2xl bg-violet-500/15 border border-violet-500/30 text-violet-300 font-bold text-xs">
             Cabin: {details.cabin}
           </span>
         </div>
 
-        {/* Faculty's Schedule Today */}
         <div className="space-y-3">
-          <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+          <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
             Today's Academic Schedule
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {details.scheduleToday?.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 space-y-1.5"
+                className="glass-card border border-white/10 rounded-2xl p-3.5 space-y-1.5"
               >
-                <div className="flex items-center justify-between text-xs font-bold text-blue-700">
+                <div className="flex items-center justify-between text-xs font-bold text-pink-400">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5" />
                     {item.time}
                   </span>
-                  <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700 text-[11px]">
+                  <span className="font-mono bg-white/5 px-2 py-0.5 rounded border border-white/10 text-slate-300 text-[10px]">
                     {item.room}
                   </span>
                 </div>
-                <p className="text-xs font-semibold text-slate-900">{item.activity}</p>
+                <p className="text-xs font-semibold text-white">{item.activity}</p>
               </div>
             ))}
           </div>
@@ -168,65 +158,62 @@ export const RoleDashboard: React.FC<RoleDashboardProps> = ({ account, onAskAI }
   if (role === 'parent' && details) {
     const ward = details.ward;
     return (
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="p-2 bg-emerald-100 text-emerald-800 rounded-xl">
-                <Users className="w-5 h-5" />
-              </span>
-              <div>
-                <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
-                  Parent / Guardian Portal: {name}
-                </h2>
-                <p className="text-xs text-slate-500 font-medium">
-                  Ward: <strong className="text-slate-900">{ward?.name}</strong> ({ward?.usn})
-                </p>
-              </div>
+      <div className="glass-panel rounded-3xl border border-white/10 shadow-2xl p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 bg-gradient-to-br from-violet-600/30 to-pink-600/30 border border-pink-500/30 rounded-2xl text-pink-400">
+              <Users className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-lg font-extrabold text-white tracking-tight font-heading">
+                Parent Portal: {name}
+              </h2>
+              <p className="text-xs text-slate-400 font-medium">
+                Ward: <strong className="text-white">{ward?.name}</strong> ({ward?.usn})
+              </p>
             </div>
           </div>
-          <span className="px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 font-bold text-xs">
+          <span className="px-3 py-1.5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold text-xs">
             Relation: {details.relation}
           </span>
         </div>
 
-        {/* Ward Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-            <span className="text-[11px] font-bold text-slate-500 uppercase">Academic Standing</span>
-            <div className="text-xl font-extrabold text-slate-900 mt-1">{ward?.cgpa} CGPA</div>
-            <p className="text-xs text-slate-500 mt-0.5">Sem {ward?.semester} • {ward?.deptCode}</p>
+          <div className="glass-card border border-white/10 rounded-2xl p-4">
+            <span className="text-[10px] font-bold text-slate-400 uppercase">Academic Standing</span>
+            <div className="text-xl font-black text-white mt-1 font-heading">{ward?.cgpa} CGPA</div>
+            <p className="text-xs text-slate-400 mt-0.5">Sem {ward?.semester} • {ward?.deptCode}</p>
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-            <span className="text-[11px] font-bold text-slate-500 uppercase">Faculty Mentor</span>
-            <div className="text-sm font-extrabold text-slate-900 mt-1">{ward?.mentorName}</div>
-            <p className="text-xs text-blue-600 font-medium mt-0.5">{ward?.mentorPhone}</p>
+          <div className="glass-card border border-white/10 rounded-2xl p-4">
+            <span className="text-[10px] font-bold text-slate-400 uppercase">Faculty Mentor</span>
+            <div className="text-sm font-extrabold text-white mt-1 font-heading">{ward?.mentorName}</div>
+            <p className="text-xs text-pink-400 font-medium mt-0.5">{ward?.mentorPhone}</p>
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-            <span className="text-[11px] font-bold text-slate-500 uppercase">University Bus</span>
-            <div className="text-sm font-extrabold text-slate-900 mt-1">Route #{ward?.busRoute}</div>
-            <p className="text-xs text-slate-500 mt-0.5">Evening Departure: 04:45 PM</p>
+          <div className="glass-card border border-white/10 rounded-2xl p-4">
+            <span className="text-[10px] font-bold text-slate-400 uppercase">Campus Bus</span>
+            <div className="text-sm font-extrabold text-white mt-1 font-heading">Route #{ward?.busRoute}</div>
+            <p className="text-xs text-slate-400 mt-0.5">Departs 04:45 PM Gate 1</p>
           </div>
         </div>
       </div>
     );
   }
 
-  // 4. GUEST / VISITOR VIEW
+  // 4. GUEST VIEW
   return (
-    <div className="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 space-y-6">
-      <div className="flex items-center gap-3 pb-4 border-b border-slate-200">
-        <span className="p-2 bg-amber-100 text-amber-800 rounded-xl">
+    <div className="glass-panel rounded-3xl border border-white/10 shadow-2xl p-6 space-y-6">
+      <div className="flex items-center gap-3 pb-4 border-b border-white/10">
+        <div className="p-2.5 bg-gradient-to-br from-violet-600/30 to-pink-600/30 border border-pink-500/30 rounded-2xl text-pink-400">
           <Compass className="w-5 h-5" />
-        </span>
+        </div>
         <div>
-          <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-lg font-extrabold text-white tracking-tight font-heading">
             Sapthagiri NPS University Campus Navigator
           </h2>
-          <p className="text-xs text-slate-500 font-medium">
-            Welcome Visitor! Explore academic blocks, admissions, and campus amenities.
+          <p className="text-xs text-slate-400 font-medium">
+            Welcome Campus Guest! Explore academic departments, amenities, and admissions.
           </p>
         </div>
       </div>
@@ -234,26 +221,26 @@ export const RoleDashboard: React.FC<RoleDashboardProps> = ({ account, onAskAI }
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <button
           onClick={() => onAskAI('Tell me about admissions at Sapthagiri NPS University')}
-          className="text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 bg-slate-50 hover:bg-blue-50/50 transition-all cursor-pointer"
+          className="text-left p-4 rounded-2xl border border-white/10 hover:border-pink-500/40 glass-card transition-all cursor-pointer"
         >
-          <span className="font-bold text-xs text-slate-900 block">Admissions 2026</span>
-          <span className="text-[11px] text-slate-500">Engineering, AI & Management programs</span>
+          <span className="font-bold text-xs text-white block font-heading">Admissions 2026</span>
+          <span className="text-[11px] text-slate-400">AI, Engineering & Management</span>
         </button>
 
         <button
           onClick={() => onAskAI('Where is the campus cafeteria and library?')}
-          className="text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 bg-slate-50 hover:bg-blue-50/50 transition-all cursor-pointer"
+          className="text-left p-4 rounded-2xl border border-white/10 hover:border-pink-500/40 glass-card transition-all cursor-pointer"
         >
-          <span className="font-bold text-xs text-slate-900 block">Campus Landmarks</span>
-          <span className="text-[11px] text-slate-500">Central Library, Food Court, Auditorium</span>
+          <span className="font-bold text-xs text-white block font-heading">Campus Landmarks</span>
+          <span className="text-[11px] text-slate-400">Central Library, Food Court</span>
         </button>
 
         <button
           onClick={() => onAskAI('How do I contact the university helpline?')}
-          className="text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 bg-slate-50 hover:bg-blue-50/50 transition-all cursor-pointer"
+          className="text-left p-4 rounded-2xl border border-white/10 hover:border-pink-500/40 glass-card transition-all cursor-pointer"
         >
-          <span className="font-bold text-xs text-slate-900 block">Helpline & Info</span>
-          <span className="text-[11px] text-slate-500">Campus security & administrative desk</span>
+          <span className="font-bold text-xs text-white block font-heading">Help Desk</span>
+          <span className="text-[11px] text-slate-400">Security & Admissions Helpline</span>
         </button>
       </div>
     </div>

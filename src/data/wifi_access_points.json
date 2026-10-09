@@ -10,6 +10,26 @@
     "nearbyRooms": ["AB-Lab1", "AB-Lab2", "AB-Lab3"]
   },
   {
+    "id": "AP-AB-1F-02",
+    "mac": "84:D4:7E:11:01:C9",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Aryabhata Block",
+    "floor": "1st Floor",
+    "zone": "Academic Council & Seminar Rooms",
+    "signalStrengthDbm": -51,
+    "nearbyRooms": ["AB-CR1", "AB-101", "AB-102"]
+  },
+  {
+    "id": "AP-ADM-1F-01",
+    "mac": "84:D4:7E:99:01:D1",
+    "ssid": "SNPU-Admin-Office",
+    "building": "Admin Block",
+    "floor": "1st Floor",
+    "zone": "Student Affairs & Registrar Office",
+    "signalStrengthDbm": -46,
+    "nearbyRooms": ["ADM-105", "ADM-101", "ADM-REG"]
+  },
+  {
     "id": "AP-AB-2F-01",
     "mac": "84:D4:7E:11:02:B2",
     "ssid": "SNPU-Campus-WiFi",
@@ -50,6 +70,16 @@
     "nearbyRooms": ["VB-201", "VB-202", "VB-204"]
   },
   {
+    "id": "AP-VB-1F-01",
+    "mac": "84:D4:7E:22:01:A3",
+    "ssid": "SNPU-Campus-WiFi",
+    "building": "Visvesvaraya Block",
+    "floor": "1st Floor",
+    "zone": "High Performance Computing Lab",
+    "signalStrengthDbm": -49,
+    "nearbyRooms": ["VB-Lab1", "VB-102"]
+  },
+  {
     "id": "AP-RB-GF-01",
     "mac": "84:D4:7E:33:01:F6",
     "ssid": "SNPU-Campus-WiFi",
@@ -58,6 +88,16 @@
     "zone": "ECE VLSI & Embedded Labs",
     "signalStrengthDbm": -58,
     "nearbyRooms": ["RB-101", "RB-102", "RB-VLSI"]
+  },
+  {
+    "id": "AP-AUD-01",
+    "mac": "84:D4:7E:88:01:A9",
+    "ssid": "SNPU-Auditorium-WiFi",
+    "building": "Central Block",
+    "floor": "Ground Floor",
+    "zone": "Auditorium Main Stage & Seating",
+    "signalStrengthDbm": -40,
+    "nearbyRooms": ["AUD-MAIN"]
   },
   {
     "id": "AP-LIB-01",

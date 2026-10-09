@@ -1,6 +1,8 @@
 export type UserRole = 'student' | 'faculty' | 'parent' | 'guest';
 
-export type SupportedLanguage = 'en' | 'kn' | 'hi' | 'te' | 'ta' | 'ml';
+export type SupportedLanguage = 'en' | 'kn' | 'hi' | 'te' | 'ta' | 'ml' | 'ur';
+
+export type LanguageCode = 'en-IN' | 'kn-IN' | 'hi-IN' | 'te-IN' | 'ta-IN' | 'ml-IN' | 'ur-IN';
 
 export interface UserAccount {
   phoneNumber: string;
@@ -14,7 +16,9 @@ export interface UserAccount {
     voiceEnabled: boolean;
     autoSpeak: boolean;
     speechRate: number;
-    theme: 'light' | 'dark' | 'system';
+    theme: 'dark' | 'light' | 'system';
+    preferredVoiceURI?: string;
+    handsFreeMode?: boolean;
     highContrast: boolean;
     notificationsEnabled: boolean;
   };
@@ -27,7 +31,7 @@ export interface Reminder {
   id: string;
   title: string;
   description?: string;
-  datetime: string; // ISO string or time format
+  datetime: string;
   category: 'class' | 'exam' | 'assignment' | 'bus' | 'event' | 'personal';
   isCompleted: boolean;
   createdAt: string;
@@ -192,7 +196,10 @@ export interface ChatMessage {
   sender: 'user' | 'assistant' | 'system';
   text: string;
   timestamp: string;
-  language?: SupportedLanguage;
+  languageCode?: LanguageCode;
+  languageLabel?: string;
+  isRtl?: boolean;
   suggestedActions?: string[];
-  metadata?: any;
+  audioUrl?: string;
+  voiceNote?: string;
 }

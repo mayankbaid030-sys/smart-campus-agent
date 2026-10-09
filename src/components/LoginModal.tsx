@@ -1,20 +1,19 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { UserAccount, SupportedLanguage } from '@/types';
+import { SupportedLanguage } from '@/types';
 import { normalizePhone, formatPhoneDisplay } from '@/lib/localStorageUtil';
 import { getTranslation } from '@/lib/translations';
+import { Logo } from '@/components/Logo';
 import {
   KeyRound,
   Phone,
-  ShieldCheck,
   Sparkles,
   ArrowRight,
   Clock,
   AlertCircle,
   Copy,
   Check,
-  UserCheck,
   School,
   Lock,
 } from 'lucide-react';
@@ -29,14 +28,14 @@ const DEMO_PERSONAS = [
     role: 'Student',
     name: 'Rahul Sharma',
     phone: '+91 98451 23456',
-    desc: '3rd Year CSE (USN: 1SG21CS085)',
+    desc: 'CSE 6th Sem • 1SG21CS085',
     avatar: '🎓',
   },
   {
     role: 'Faculty',
     name: 'Dr. Geetha R.',
     phone: '+91 98860 12345',
-    desc: 'Professor & HOD (Cabin 304)',
+    desc: 'HOD CSE • Cabin AB-304',
     avatar: '👩‍🏫',
   },
   {
@@ -50,7 +49,7 @@ const DEMO_PERSONAS = [
     role: 'Faculty',
     name: 'Prof. Priya Sundaram',
     phone: '+91 97412 34567',
-    desc: 'Dean Student Affairs (Admin 105)',
+    desc: 'Dean Student Affairs • Admin 105',
     avatar: '🏢',
   },
   {
@@ -90,11 +89,10 @@ export const LoginModal: React.FC<LoginModalProps> = ({
     const rawNumber = targetPhone || phoneNumber;
     setError(null);
 
-    // Validate phone number
     const normalized = normalizePhone(rawNumber);
     const indianRegex = /^\+91[6-9]\d{9}$/;
     if (!indianRegex.test(normalized)) {
-      setError('Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9.');
+      setError('Please enter a valid 10-digit Indian mobile number (+91).');
       return;
     }
 
@@ -116,7 +114,6 @@ export const LoginModal: React.FC<LoginModalProps> = ({
         setError(data.error || 'Failed to generate Demo OTP.');
       }
     } catch (err) {
-      // Local fallback generation
       const fallbackOtp = Math.floor(100000 + Math.random() * 900000).toString();
       setGeneratedOtp(fallbackOtp);
       setOtpSent(true);
@@ -130,7 +127,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
   const handleVerifyOtp = async () => {
     setError(null);
     if (!inputOtp || inputOtp.length < 6) {
-      setError('Please enter the complete 6-digit OTP.');
+      setError('Please enter the 6-digit OTP code.');
       return;
     }
 
@@ -147,7 +144,6 @@ export const LoginModal: React.FC<LoginModalProps> = ({
       if (res.ok && data.success) {
         onLoginSuccess(normalized);
       } else if (inputOtp === generatedOtp || inputOtp === '123456') {
-        // Safe fallback verification
         onLoginSuccess(normalized);
       } else {
         setError(getTranslation(currentLang, 'wrongOtp'));
@@ -177,48 +173,34 @@ export const LoginModal: React.FC<LoginModalProps> = ({
     }
   };
 
-  const handleAutoFill = () => {
-    if (generatedOtp) {
-      setInputOtp(generatedOtp);
-    }
-  };
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
-        {/* Modal Banner */}
-        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-6 text-white relative">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-400 text-blue-950 flex items-center justify-center shadow-lg font-black text-xl">
-              SNPU
-            </div>
-            <div>
-              <h2 className="text-xl font-bold tracking-tight">
-                {getTranslation(currentLang, 'campusTitle')}
-              </h2>
-              <p className="text-xs text-blue-200">
-                Sapthagiri NPS University • Bangalore Campus Portal
-              </p>
-            </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto animate-in fade-in duration-200">
+      <div className="w-full max-w-lg bg-[#131226] rounded-3xl shadow-2xl border border-white/10 overflow-hidden my-6 text-slate-100">
+        {/* Banner with Big Bold Gradient Headline */}
+        <div className="p-6 bg-gradient-to-br from-violet-950 via-[#131226] to-pink-950/60 border-b border-white/10 relative">
+          <div className="space-y-2">
+            <Logo size={46} showWordmark={true} animated={true} />
+            <p className="text-xs text-slate-400">
+              Welcome to Sapthagiri NPS University! Enter your mobile number to access live campus radar & intelligence.
+            </p>
           </div>
-          <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-800/80 border border-blue-400/30 text-[11px] font-semibold text-blue-100">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            {getTranslation(currentLang, 'demoOtpBadge')}
+          <div className="mt-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-xs font-bold text-pink-300">
+            <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+            <span>Demo OTP Login • Simulated & Free</span>
           </div>
         </div>
 
         {/* Modal Body */}
         <div className="p-6 space-y-6">
-          {/* Phone Number Input Form */}
           {!otpSent ? (
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                   {getTranslation(currentLang, 'enterPhone')}
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-3 flex items-center gap-1 text-slate-500 font-semibold text-sm">
-                    <Phone className="w-4 h-4 text-slate-400" />
+                  <div className="absolute left-3.5 flex items-center gap-1 text-slate-400 font-bold text-sm">
+                    <Phone className="w-4 h-4 text-pink-400" />
                     <span>+91</span>
                   </div>
                   <input
@@ -226,18 +208,18 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                     placeholder="98451 23456"
                     value={phoneNumber.replace(/^\+91\s*/, '')}
                     onChange={(e) => setPhoneNumber(`+91 ${e.target.value.replace(/\D/g, '')}`)}
-                    className="w-full pl-20 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-base tracking-wide"
+                    className="w-full pl-20 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-2xl text-white font-semibold focus:outline-none focus:ring-2 focus:ring-pink-500 text-base tracking-wide"
                     maxLength={13}
                   />
                 </div>
-                <p className="text-[11px] text-slate-500 mt-1.5">
-                  Enter any 10-digit mobile number, or select a pre-configured persona below.
+                <p className="text-[11px] text-slate-400 mt-1.5">
+                  Enter any 10-digit mobile number, or tap a pre-configured persona below.
                 </p>
               </div>
 
               {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2 text-red-700 text-xs font-medium">
-                  <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                <div className="p-3 bg-red-500/15 border border-red-500/30 rounded-xl flex items-center gap-2 text-red-300 text-xs font-medium">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
@@ -245,7 +227,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
               <button
                 onClick={() => handleSendOtp()}
                 disabled={isLoading}
-                className="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 transition-all disabled:opacity-50 cursor-pointer"
+                className="w-full py-3.5 px-4 btn-gradient font-bold rounded-2xl shadow-xl shadow-pink-500/20 flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
               >
                 {isLoading ? (
                   <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -258,11 +240,10 @@ export const LoginModal: React.FC<LoginModalProps> = ({
               </button>
             </div>
           ) : (
-            /* OTP Verification Screen */
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-xs text-slate-600">
+              <div className="flex items-center justify-between text-xs text-slate-400">
                 <span>
-                  Code sent to: <strong className="text-slate-900">{formatPhoneDisplay(phoneNumber)}</strong>
+                  Code sent to: <strong className="text-white">{formatPhoneDisplay(phoneNumber)}</strong>
                 </span>
                 <button
                   onClick={() => {
@@ -270,50 +251,50 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                     setInputOtp('');
                     setError(null);
                   }}
-                  className="text-blue-600 font-semibold hover:underline"
+                  className="text-pink-400 font-bold hover:underline cursor-pointer"
                 >
                   Change Number
                 </button>
               </div>
 
-              {/* DEMO OTP PROMINENT BOX */}
-              <div className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 shadow-inner relative overflow-hidden">
+              {/* DEMO OTP PROMINENT BOX WITH SOFT GLOW */}
+              <div className="bg-gradient-to-br from-violet-950/70 to-pink-950/50 border-2 border-pink-500/40 rounded-2xl p-4 shadow-xl shadow-pink-500/10 relative">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-                    <span className="text-xs font-black uppercase tracking-wider text-amber-900">
+                    <span className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse" />
+                    <span className="text-xs font-black uppercase tracking-wider text-pink-300 font-heading">
                       Demo OTP Code (Simulated)
                     </span>
                   </div>
                   <button
                     onClick={copyToClipboard}
-                    className="flex items-center gap-1 text-[11px] font-bold text-amber-900 hover:text-amber-700 bg-amber-200/60 px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-[11px] font-bold text-white bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{copied ? 'Copied' : 'Copy'}</span>
                   </button>
                 </div>
 
-                <div className="my-3 flex items-center justify-center gap-2 font-mono text-3xl font-extrabold tracking-widest text-slate-900">
+                <div className="my-3 flex items-center justify-center font-mono text-3xl font-black tracking-widest text-white drop-shadow-md">
                   {generatedOtp}
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
-                  <span className="text-[11px] text-amber-800">
-                    Use this code to complete demo verification.
+                  <span className="text-[11px] text-slate-300">
+                    Use this simulated OTP to complete entry.
                   </span>
                   <button
-                    onClick={handleAutoFill}
-                    className="text-xs font-bold text-blue-700 bg-blue-100 hover:bg-blue-200 px-2.5 py-1 rounded-lg transition-colors"
+                    onClick={() => setInputOtp(generatedOtp)}
+                    className="text-xs font-bold text-pink-300 bg-pink-500/20 hover:bg-pink-500/30 border border-pink-500/30 px-3 py-1 rounded-lg transition-colors cursor-pointer"
                   >
                     Auto-fill Code
                   </button>
                 </div>
               </div>
 
-              {/* Input OTP Field */}
+              {/* Input OTP */}
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                   {getTranslation(currentLang, 'enterOtpCode')}
                 </label>
                 <input
@@ -322,23 +303,22 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                   value={inputOtp}
                   onChange={(e) => setInputOtp(e.target.value.replace(/\D/g, ''))}
                   placeholder="------"
-                  className="w-full text-center tracking-[0.5em] font-mono text-2xl py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900 font-bold"
+                  className="w-full text-center tracking-[0.5em] font-mono text-2xl py-3 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 text-white font-black"
                   autoFocus
                 />
               </div>
 
               {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2 text-red-700 text-xs font-medium">
-                  <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                <div className="p-3 bg-red-500/15 border border-red-500/30 rounded-xl flex items-center gap-2 text-red-300 text-xs font-medium">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
-              {/* Verify Button */}
               <button
                 onClick={handleVerifyOtp}
                 disabled={isLoading || inputOtp.length < 6}
-                className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all disabled:opacity-50 cursor-pointer"
+                className="w-full py-3.5 px-4 btn-gradient font-bold rounded-2xl shadow-xl shadow-pink-500/20 flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
               >
                 {isLoading ? (
                   <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -350,8 +330,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 )}
               </button>
 
-              {/* Resend Timer */}
-              <div className="text-center text-xs text-slate-500 flex items-center justify-center gap-1">
+              <div className="text-center text-xs text-slate-400 flex items-center justify-center gap-1">
                 <Clock className="w-3.5 h-3.5" />
                 {timer > 0 ? (
                   <span>
@@ -360,7 +339,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 ) : (
                   <button
                     onClick={() => handleSendOtp()}
-                    className="text-blue-600 font-bold hover:underline"
+                    className="text-pink-400 font-bold hover:underline cursor-pointer"
                   >
                     {getTranslation(currentLang, 'resendOtp')}
                   </button>
@@ -369,14 +348,14 @@ export const LoginModal: React.FC<LoginModalProps> = ({
             </div>
           )}
 
-          {/* Quick Demo Personas Selector */}
-          <div className="pt-4 border-t border-slate-200">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          {/* Quick Demo Personas */}
+          <div className="pt-4 border-t border-white/10">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                 {getTranslation(currentLang, 'quickDemoUsers')}
               </span>
-              <span className="text-[10px] text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
-                Verified Seed Data
+              <span className="text-[10px] text-pink-300 font-bold bg-pink-500/10 px-2 py-0.5 rounded-full border border-pink-500/20">
+                Seed College Database
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -385,20 +364,20 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                   key={persona.phone}
                   type="button"
                   onClick={() => handleSelectPersona(persona.phone)}
-                  className="text-left p-2.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all group flex items-start gap-2.5 bg-slate-50/50"
+                  className="text-left p-3 rounded-2xl border border-white/10 hover:border-pink-500/50 bg-white/5 hover:bg-pink-500/5 transition-all group flex items-start gap-2.5 cursor-pointer"
                 >
-                  <span className="text-xl shrink-0 p-1 rounded-lg bg-white shadow-sm border border-slate-100">
+                  <span className="text-xl shrink-0 p-1.5 rounded-xl bg-white/10">
                     {persona.avatar}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <div className="text-xs font-bold text-slate-900 group-hover:text-blue-700 flex items-center justify-between">
+                    <div className="text-xs font-bold text-white group-hover:text-pink-300 flex items-center justify-between">
                       <span className="truncate">{persona.name}</span>
-                      <span className="text-[10px] uppercase font-semibold text-slate-500 px-1 py-0.2 rounded bg-slate-200/80">
+                      <span className="text-[9px] uppercase font-bold text-slate-400 px-1.5 py-0.2 rounded-full bg-white/10">
                         {persona.role}
                       </span>
                     </div>
-                    <div className="text-[10px] text-slate-500 truncate">{persona.desc}</div>
-                    <div className="text-[10px] font-mono text-blue-600 font-medium">
+                    <div className="text-[10px] text-slate-400 truncate">{persona.desc}</div>
+                    <div className="text-[10px] font-mono text-pink-400 font-semibold">
                       {persona.phone}
                     </div>
                   </div>
@@ -407,9 +386,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({
             </div>
           </div>
 
-          {/* Explainer Note */}
-          <div className="p-3 bg-slate-100 rounded-xl text-[11px] text-slate-600 leading-relaxed border border-slate-200">
-            <strong>Evaluation Note:</strong> Demo OTP is simulated and data is stored on the device for the demo. Production uses an SMS provider for OTP and a cloud database (e.g. Firestore) so accounts sync across devices. Roles are strictly enforced from college records.
+          <div className="p-3 bg-white/5 rounded-2xl text-[11px] text-slate-400 leading-relaxed border border-white/5">
+            <strong>Architecture Note:</strong> Demo OTP is simulated and data is stored on the device for the demo. Production uses an SMS provider for OTP and a cloud database (e.g. Firestore) so accounts sync across devices. Roles are strictly seed-enforced.
           </div>
         </div>
       </div>

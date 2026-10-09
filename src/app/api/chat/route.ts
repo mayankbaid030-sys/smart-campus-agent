@@ -1,7 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { CAMPUS_SYSTEM_PROMPT, generateLocalCampusResponse } from '@/lib/gemini';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import facultySeedData from '@/data/faculty.json';
+import { LanguageCode } from '@/types';
+
+// Detect likely script / language from characters
+function detectLanguageCodeFromText(text: string, fallback: LanguageCode = 'en-IN'): LanguageCode {
+  if (/[\u0C80-\u0CFF]/.test(text)) return 'kn-IN'; // Kannada
+  if (/[\u0900-\u097F]/.test(text)) return 'hi-IN'; // Devanagari / Hindi
+  if (/[\u0C00-\u0C7F]/.test(text)) return 'te-IN'; // Telugu
+  if (/[\u0B80-\u0BFF]/.test(text)) return 'ta-IN'; // Tamil
+  if (/[\u0D00-\u0D7F]/.test(text)) return 'ml-IN'; // Malayalam
+  if (/[\u0600-\u06FF]/.test(text)) return 'ur-IN'; // Arabic / Urdu
+  return fallback;
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,23 +25,62 @@ export async function POST(req: NextRequest) {
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
+    const modelName = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+    const fallbackLangCode: LanguageCode = `${language}-IN` as LanguageCode;
+    const initialDetectedCode = detectLanguageCodeFromText(message, fallbackLangCode);
 
-    // If Gemini API Key is configured in environment variables, use live Gemini 1.5 Flash
+    // If Gemini API Key is configured, use live modern @google/genai SDK
     if (apiKey) {
       try {
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({
-          model: 'gemini-1.5-flash',
-          systemInstruction: CAMPUS_SYSTEM_PROMPT + `\n\nCurrent Real-Time Faculty Locations:\n${JSON.stringify(liveFaculty)}\nUser Role: ${role}\nTarget Language: ${language}`,
+        const ai = new GoogleGenAI({ apiKey });
+        const systemInstruction = `
+${CAMPUS_SYSTEM_PROMPT}
+
+MULTILINGUAL REPLY INSTRUCTION:
+1. Detect the language and script in the user's message.
+2. Reply in the EXACT SAME LANGUAGE the user typed in! (If user wrote in Kannada, reply in Kannada. If Hindi, reply in Hindi. If Urdu, reply in Urdu. If English, reply in English).
+3. Return JSON with format:
+{
+  "languageCode": "kn-IN | hi-IN | en-IN | ta-IN | te-IN | ml-IN | ur-IN",
+  "reply": "Concise, voice-ready answer in the exact same language"
+}
+
+Current Real-Time Faculty Locations:
+${JSON.stringify(liveFaculty)}
+User Role: ${role}
+`;
+
+        const response = await ai.models.generateContent({
+          model: modelName,
+          contents: `User message: "${message}". Detect language and reply in strict JSON.`,
+          config: {
+            systemInstruction,
+            responseMimeType: 'application/json',
+          },
         });
 
-        const prompt = `User Query in ${language}: "${message}". Provide a helpful, voice-ready answer.`;
-        const result = await model.generateContent(prompt);
-        const responseText = result.response.text();
+        const rawText = response.text || '{}';
+        let parsed: any = {};
+        try {
+          parsed = JSON.parse(rawText);
+        } catch {
+          const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+          if (jsonMatch) {
+            parsed = JSON.parse(jsonMatch[0]);
+          } else {
+            parsed = {
+              languageCode: initialDetectedCode,
+              reply: rawText,
+            };
+          }
+        }
+
+        const replyText = parsed.reply || rawText;
+        const finalLangCode = parsed.languageCode || initialDetectedCode;
 
         // Check for reminder tag
         let reminderData: any = null;
-        const reminderMatch = responseText.match(/\[REMINDER:\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\]/i);
+        const reminderMatch = replyText.match(/\[REMINDER:\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\]/i);
         if (reminderMatch) {
           reminderData = {
             title: reminderMatch[1],
@@ -38,10 +89,11 @@ export async function POST(req: NextRequest) {
           };
         }
 
-        const cleanText = responseText.replace(/\[REMINDER:.*?\]/gi, '').trim();
+        const cleanText = replyText.replace(/\[REMINDER:.*?\]/gi, '').trim();
 
         return NextResponse.json({
           answer: cleanText,
+          languageCode: finalLangCode,
           language,
           detectedReminder: reminderData,
           suggestedActions: [
@@ -50,18 +102,18 @@ export async function POST(req: NextRequest) {
             'When is the next bus?',
             'Upcoming events',
           ],
-          source: 'gemini-1.5-flash',
+          source: modelName,
         });
       } catch (geminiError) {
         console.warn('Gemini API call failed, falling back to local campus engine:', geminiError);
-        // Seamless fallback to local engine
       }
     }
 
-    // Local smart campus matcher (100% free, offline-ready, zero latency)
+    // Local smart campus matcher (100% free offline fallback)
     const localResponse = generateLocalCampusResponse(message, role, language, liveFaculty);
     return NextResponse.json({
       ...localResponse,
+      languageCode: initialDetectedCode,
       source: 'snpu-local-engine',
     });
   } catch (error: any) {

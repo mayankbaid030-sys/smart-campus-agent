@@ -40,6 +40,26 @@
     "wifiAp": "AP-AB-4F-01"
   },
   {
+    "id": "AB-CR1",
+    "name": "Academic Council Conference Room 1",
+    "building": "Aryabhata Block",
+    "floor": "1st Floor",
+    "type": "Conference Hall",
+    "capacity": 30,
+    "hasProjector": true,
+    "wifiAp": "AP-AB-1F-02"
+  },
+  {
+    "id": "ADM-105",
+    "name": "Office of Student Affairs (Room 105)",
+    "building": "Admin Block",
+    "floor": "1st Floor",
+    "type": "Administrative Office",
+    "capacity": 15,
+    "hasProjector": false,
+    "wifiAp": "AP-ADM-1F-01"
+  },
+  {
     "id": "AB-Lab3",
     "name": "AI & Advanced Web Technologies Lab",
     "building": "Aryabhata Block",
